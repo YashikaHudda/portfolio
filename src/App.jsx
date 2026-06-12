@@ -41,6 +41,7 @@ const avatarIllustration = `data:image/svg+xml;utf8,${encodeURIComponent(`
 function App() {
   const { profile, spotlight, projects, skills, research, contact } = portfolioData;
   const year = new Date().getFullYear();
+  const avatarSrc = `${import.meta.env.BASE_URL}avatar.jpg`;
   const aboutParagraphs = [profile.description, spotlight.copy, contact.intro];
   const extras = [
     {
@@ -113,7 +114,7 @@ function App() {
             <div className="intro-avatar-wrap">
               <div className="avatar-circle">
                 <img
-                  src="/avatar.jpg"
+                  src={avatarSrc}
                   alt={`${profile.firstName} profile avatar`}
                   className="avatar-image"
                   onError={(e) => {
