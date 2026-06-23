@@ -18,7 +18,7 @@ export default defineConfig({
             return "assets/index.css";
           }
 
-          return "assets/[name][extname]";
+          return "assets/[name]-[hash][extname]";
         },
       },
     },
