@@ -58,10 +58,12 @@ export const portfolioData = {
     {
       name: "Smart Surveillance System",
       summary:
-        "A security monitoring project that combines real-time video analysis, object detection, and alerting for intelligent surveillance.",
+        "A computer-vision security project that combines real-time video analysis, object detection, and alerting for intelligent surveillance workflows.",
       outcome:
         "Demonstrates practical computer vision and automation for safer, more responsive environment monitoring.",
       tools: ["Python", "OpenCV", "TensorFlow", "Flask"],
+      href: "https://github.com/YashikaHudda/Smart-Surveillance-System",
+      linkLabel: "View on GitHub",
     },
   ],
   skills: [

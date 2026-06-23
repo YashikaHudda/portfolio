@@ -8,7 +8,7 @@ export default defineConfig({
     outDir: "docs",
     rollupOptions: {
       input: {
-        index: resolve("build-index.html"),
+        index: resolve("index.html"),
       },
       output: {
         entryFileNames: "assets/index.js",

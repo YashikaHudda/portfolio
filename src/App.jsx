@@ -190,6 +190,16 @@ function App() {
                       </div>
                       <p className="project-summary">{project.summary}</p>
                       <p className="project-outcome">{project.outcome}</p>
+                      {project.href ? (
+                        <a
+                          className="contact-link"
+                          href={project.href}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          {project.linkLabel || "View project"}
+                        </a>
+                      ) : null}
                       <div className="project-tools">
                         {project.tools.map((tool) => (
                           <span key={tool} className="tool-tag">
