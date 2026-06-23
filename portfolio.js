@@ -55,6 +55,14 @@ export const portfolioData = {
       outcome: "Supports operational visibility across warehouse and sales processes.",
       tools: ["PostgreSQL", "Data Modeling"],
     },
+    {
+      name: "Smart Surveillance System",
+      summary:
+        "A security monitoring project that combines real-time video analysis, object detection, and alerting for intelligent surveillance.",
+      outcome:
+        "Demonstrates practical computer vision and automation for safer, more responsive environment monitoring.",
+      tools: ["Python", "OpenCV", "TensorFlow", "Flask"],
+    },
   ],
   skills: [
     {
