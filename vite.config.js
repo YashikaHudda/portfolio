@@ -11,11 +11,11 @@ export default defineConfig({
         index: resolve("index.html"),
       },
       output: {
-        entryFileNames: "assets/index.js",
-        chunkFileNames: "assets/[name].js",
+        entryFileNames: "assets/[name]-[hash].js",
+        chunkFileNames: "assets/[name]-[hash].js",
         assetFileNames: (assetInfo) => {
           if (assetInfo.name === "style.css" || assetInfo.name?.endsWith(".css")) {
-            return "assets/index.css";
+            return "assets/[name]-[hash][extname]";
           }
 
           return "assets/[name]-[hash][extname]";
