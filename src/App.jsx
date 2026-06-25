@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import avatarImage from "./avatarData.js";
 import { portfolioData } from "../portfolio.js";
 
 const avatarIllustration = `data:image/svg+xml;utf8,${encodeURIComponent(`
@@ -38,10 +40,26 @@ const avatarIllustration = `data:image/svg+xml;utf8,${encodeURIComponent(`
   </svg>
 `)}`;
 
+// #region debug-point A:avatar-report
+const reportAvatarDebug = (hypothesisId, msg, data = {}) =>
+  fetch("http://127.0.0.1:7777/event", {
+    method: "POST",
+    body: JSON.stringify({
+      sessionId: "live-avatar-404",
+      runId: "pre-fix",
+      hypothesisId,
+      location: "src/App.jsx",
+      msg: `[DEBUG] ${msg}`,
+      data,
+      ts: Date.now(),
+    }),
+  }).catch(() => {});
+// #endregion
+
 function App() {
   const { profile, spotlight, projects, skills, research, contact } = portfolioData;
   const year = new Date().getFullYear();
-  const avatarSrc = `${import.meta.env.BASE_URL}avatar.jpg`;
+  const avatarSrc = avatarImage;
   const aboutParagraphs = [profile.description, spotlight.copy, contact.intro];
   const extras = [
     {
@@ -80,6 +98,16 @@ function App() {
     window.location.href = mailto;
   };
 
+  useEffect(() => {
+    // #region debug-point A:avatar-src
+    reportAvatarDebug("A", "avatar src resolved", {
+      avatarSrc,
+      baseUrl: import.meta.env.BASE_URL,
+      locationHref: typeof window !== "undefined" ? window.location.href : null,
+    });
+    // #endregion
+  }, [avatarSrc]);
+
   return (
     <div className="page-shell">
       <div className="background-motion" aria-hidden="true">
@@ -117,7 +145,22 @@ function App() {
                   src={avatarSrc}
                   alt={`${profile.firstName} profile avatar`}
                   className="avatar-image"
+                  onLoad={(e) => {
+                    // #region debug-point B:avatar-load
+                    reportAvatarDebug("B", "avatar image loaded", {
+                      currentSrc: e.currentTarget.currentSrc,
+                      naturalWidth: e.currentTarget.naturalWidth,
+                      naturalHeight: e.currentTarget.naturalHeight,
+                    });
+                    // #endregion
+                  }}
                   onError={(e) => {
+                    // #region debug-point C:avatar-error
+                    reportAvatarDebug("C", "avatar image failed", {
+                      currentSrc: e.currentTarget.currentSrc,
+                      src: e.currentTarget.src,
+                    });
+                    // #endregion
                     e.currentTarget.src = avatarIllustration;
                   }}
                 />
