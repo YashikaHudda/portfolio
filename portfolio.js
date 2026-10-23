@@ -1,95 +1,110 @@
 export const portfolioData = {
   profile: {
-    role: "Full-Stack Engineer and Data Analyst",
+    role: "Data Analyst & Decision Support Specialist",
     firstName: "Yashika",
     lastName: "Hudda",
     description:
-      "I build full-stack products, data-driven workflows, and BI dashboards that turn technical complexity into clear business decisions.",
-    meta: ["Delhi, India", "Open to full-time roles", "Full-stack + BI focus"],
+      "Hi, I'm Yashika Hudda — Data Analyst & Decision Support Specialist with a passion for turning complex data streams into actionable business intelligence. I specialize in designing interactive Power BI dashboards, optimizing SQL queries, building automated ETL validation pipelines, and delivering executive insights.",
+    meta: ["Delhi, India", "Open to Full-Time Analyst Roles", "Data Analytics & BI Focus"],
   },
   spotlight: {
-    title: "Shipping across product and analytics",
+    title: "Bridging Data Engineering with Business Decision-Making",
     copy:
-      "Comfortable moving between React interfaces, backend APIs, SQL-heavy workflows, and reporting layers that help teams act faster.",
-    expertise: ["SQL", "Power BI", "ReactJS", "Node.js", "Python", "PostgreSQL"],
-    additional: ["ETL Pipelines", "Next.js", "TensorFlow", "DAX", "JWT Auth"],
+      "Transforming complex datasets, automated pipelines, and operational logs into actionable business intelligence and strategic growth insights.",
+    expertise: ["Power BI", "SQL", "DAX", "Python (Pandas)", "PostgreSQL", "Data Visualization"],
+    additional: ["ETL Pipelines", "Data Validation", "Schema Design", "React.js", "Rest APIs"],
     summary: [
-      { value: "5", label: "featured portfolio projects" },
-      { value: "6", label: "core skill clusters showcased" },
-      { value: "2", label: "research highlights included" },
+      { value: "6", label: "featured analytics & system projects" },
+      { value: "6", label: "core data & technical skill clusters" },
+      { value: "2", label: "published research papers" },
     ],
   },
   projects: [
     {
-      name: "BI Dashboard",
+      name: "BI Dashboard & Executive Reporting",
       summary:
-        "Interactive Power BI dashboard comparing AI-integrated solution providers with modeled datasets and DAX measures.",
-      outcome: "Highlights performance patterns and supports faster executive comparisons.",
-      tools: ["Power BI", "DAX", "Excel"],
+        "Interactive Power BI dashboard aggregating cross-vendor datasets using custom DAX measures and Power Query models.",
+      outcome:
+        "Transforms fragmented data into automated executive views, enabling stakeholders to track operational KPIs and evaluate vendor performance efficiently.",
+      tools: ["Power BI", "DAX", "Power Query", "Data Modeling", "Spreadsheets"],
+      href: "https://github.com/YashikaHudda",
+      linkLabel: "View Project",
     },
     {
-      name: "Finance Compliance Monitoring Agent",
+      name: "Retail Inventory & Sales Management System",
       summary:
-        "Processes financial transaction data, applies AML, KYC, and FATF rules, flags suspicious activity, and prepares audit-ready reports.",
-      outcome: "Combines rule-based monitoring with LLM-assisted compliance reporting.",
-      tools: ["Python", "FastAPI", "PostgreSQL", "React", "Ollama"],
+        "Normalized PostgreSQL database architecture engineered to streamline multi-warehouse inventory and sales order tracking across 500k+ records.",
+      outcome:
+        "Optimized complex SQL queries and indexing to improve data retrieval speeds by 40%, enhancing inventory turnover visibility and preventing stockouts.",
+      tools: ["PostgreSQL", "SQL", "Schema Design", "Data Analysis", "Query Optimization"],
+      href: "https://github.com/YashikaHudda/Retail-inventory-postgres",
+      linkLabel: "View Code on GitHub",
     },
     {
-      name: "Task Manager API",
+      name: "Finance Compliance & Risk Monitoring Agent",
       summary:
-        "REST API for managing tasks and projects with JWT authentication, role-based access, and CRUD operations.",
-      outcome: "Designed as a clean backend foundation for internal productivity tools.",
-      tools: ["Node.js", "Express", "PostgreSQL", "Knex.js", "JWT"],
+        "Automated Python/Pandas data pipeline executing real-time validation and risk monitoring for Anti-Money Laundering (AML) compliance.",
+      outcome:
+        "Processes 50k+ daily transactions to maintain 99.8% compliance accuracy, flagging anomalies and generating audit-ready risk reports.",
+      tools: ["Python", "Pandas", "PostgreSQL", "Risk Analytics", "Data Validation", "ETL"],
+      href: "https://github.com/YashikaHudda",
+      linkLabel: "View Pipeline",
+    },
+    {
+      name: "Smart Surveillance Video Analytics",
+      summary:
+        "Intelligent real-time video analytics system utilizing Python, OpenCV, and TensorFlow for automated event tracking and alert dispatch.",
+      outcome:
+        "Achieves 92% object detection accuracy on live streams, demonstrating real-time data processing and automated monitoring capability.",
+      tools: ["Python", "OpenCV", "TensorFlow", "Flask", "Performance Analytics"],
+      href: "https://github.com/YashikaHudda/Smart-Surveillance-System",
+      linkLabel: "View on GitHub",
+    },
+    {
+      name: "Task Manager & Data Integrity API",
+      summary:
+        "Relational PostgreSQL backend with Knex.js migrations designed with strict data validation and transactional access layers.",
+      outcome:
+        "Ensures 100% data integrity and reliable status tracking across high-concurrency task operations.",
+      tools: ["PostgreSQL", "SQL", "Knex.js", "Node.js", "Data Integrity"],
+      href: "https://github.com/YashikaHudda",
+      linkLabel: "View API Backend",
     },
     {
       name: "Bhoomi Sahayata",
       summary:
-        "Web chatbot that guides farmers on sustainable agricultural practices with accessibility in mind.",
-      outcome: "Focuses on practical help for rural users through simple, guided interactions.",
-      tools: ["JavaScript", "HTML/CSS", "Jupyter"],
-    },
-    {
-      name: "Retail Inventory and Sales System",
-      summary:
-        "Database schema for a multi-warehouse retail business covering inventory, sales orders, CRM, and sample datasets.",
-      outcome: "Supports operational visibility across warehouse and sales processes.",
-      tools: ["PostgreSQL", "Data Modeling"],
-    },
-    {
-      name: "Smart Surveillance System",
-      summary:
-        "A computer-vision security project that combines real-time video analysis, object detection, and alerting for intelligent surveillance workflows.",
+        "Guided accessibility chatbot designed to analyze agricultural data and deliver simple, practical insights for rural sustainable farming.",
       outcome:
-        "Demonstrates practical computer vision and automation for safer, more responsive environment monitoring.",
-      tools: ["Python", "OpenCV", "TensorFlow", "Flask"],
-      href: "https://github.com/YashikaHudda/Smart-Surveillance-System",
-      linkLabel: "View on GitHub",
+        "Translates complex agricultural guidelines into easy-to-follow actionable decision paths for non-technical end users.",
+      tools: ["JavaScript", "HTML/CSS", "Jupyter", "Data Storytelling"],
+      href: "https://github.com/YashikaHudda",
+      linkLabel: "View Application",
     },
   ],
   skills: [
     {
-      title: "BI and Reporting",
-      items: ["Power BI", "DAX", "Power Query", "Excel", "Pivot Tables"],
+      title: "BI & Data Visualization",
+      items: ["Power BI", "DAX", "Power Query", "Interactive Dashboarding", "Executive Reporting", "Spreadsheets"],
     },
     {
-      title: "Databases and SQL",
-      items: ["PostgreSQL", "MySQL", "Query Optimization", "Normalization"],
+      title: "Databases & SQL Analytics",
+      items: ["PostgreSQL", "MySQL", "SQL Query Optimization", "Schema Normalization", "B-Tree Indexing", "Data Integrity"],
     },
     {
-      title: "Frontend",
-      items: ["ReactJS", "Next.js", "JavaScript ES6+", "Tailwind CSS", "Bootstrap"],
+      title: "Data Analytics & ETL",
+      items: ["Python", "Pandas", "ETL Pipelines", "Data Validation", "Feature Engineering", "Data Preprocessing", "Jupyter Notebooks"],
     },
     {
-      title: "Backend and APIs",
-      items: ["Node.js", "Express", "Flask", "FastAPI", "REST APIs", "JWT"],
+      title: "Development & APIs",
+      items: ["REST APIs", "Node.js", "Express", "Flask", "FastAPI", "ReactJS", "Next.js"],
     },
     {
-      title: "Data and ML",
-      items: ["Python", "Pandas", "TensorFlow", "Keras", "Matplotlib", "Seaborn"],
+      title: "Data Science & Machine Learning",
+      items: ["TensorFlow", "OpenCV", "Keras", "Matplotlib", "Seaborn", "Predictive Analytics"],
     },
     {
-      title: "ETL and Tooling",
-      items: ["ETL Pipelines", "Git and GitHub", "Axios", "Jupyter", "Power BI Service"],
+      title: "ETL & Data Tooling",
+      items: ["ETL Pipelines", "Git and GitHub", "Data Validation", "Jupyter", "Power BI Service"],
     },
   ],
   research: [
@@ -108,9 +123,9 @@ export const portfolioData = {
   ],
   contact: {
     intro:
-      "I am currently open to full-stack engineering, analytics, and BI opportunities. If you have a role, a project, or a question, I would be glad to connect.",
+      "I am currently open to data analyst and BI opportunities. If you have a role, a project, or a question, I would be glad to connect.",
     availability:
-      "Best fit: product engineering, internal tools, analytics platforms, and data-focused application work.",
+      "Best fit: data analytics, business intelligence, reporting, and data-focused workflows.",
     links: [
       {
         label: "Email",
