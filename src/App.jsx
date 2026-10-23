@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import avatarImage from "./avatarData.js";
 import { portfolioData } from "../portfolio.js";
 
@@ -44,6 +45,17 @@ function App() {
   const year = new Date().getFullYear();
   const avatarSrc = avatarImage;
   const aboutParagraphs = [profile.description, spotlight.copy, contact.intro];
+  
+  // Ref for the projects horizontal slider container
+  const projectsRef = useRef(null);
+
+  const scrollProjects = (direction) => {
+    if (projectsRef.current) {
+      const scrollAmount = direction === "left" ? -320 : 320;
+      projectsRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    }
+  };
+
   const extras = [
     {
       title: "Favorite stack",
@@ -202,13 +214,29 @@ function App() {
                     <p className="section-label">Selected work</p>
                     <h2 className="section-title">Projects</h2>
                   </div>
-                  <p className="section-copy">
-                    A curated set of product, analytics, and backend work with practical outcomes.
-                  </p>
+                  <div className="slider-controls">
+                    <button
+                      type="button"
+                      className="slider-arrow"
+                      onClick={() => scrollProjects("left")}
+                      aria-label="Previous projects"
+                    >
+                      &#8592;
+                    </button>
+                    <button
+                      type="button"
+                      className="slider-arrow"
+                      onClick={() => scrollProjects("right")}
+                      aria-label="Next projects"
+                    >
+                      &#8594;
+                    </button>
+                  </div>
                 </div>
-                <div className="projects-grid">
+
+                <div className="projects-slider" ref={projectsRef}>
                   {projects.map((project) => (
-                    <article key={project.name} className="project-card">
+                    <article key={project.name} className="project-card-slide">
                       <div className="project-header">
                         <h3 className="project-name">{project.name}</h3>
                         <span className="meta-pill subtle">Project</span>
