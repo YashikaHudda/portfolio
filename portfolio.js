@@ -4,7 +4,7 @@ export const portfolioData = {
     firstName: "Yashika",
     lastName: "Hudda",
     description:
-     "Data Analyst & Decision Support Specialist with a passion for turning complex data streams into actionable business intelligence. I specialize in designing interactive Power BI dashboards, optimizing SQL queries, building automated ETL validation pipelines, and delivering executive insights.",
+      "Data Analyst & Decision Support Specialist with a passion for turning complex data streams into actionable business intelligence. I specialize in designing interactive Power BI dashboards, optimizing SQL queries, building automated ETL validation pipelines, and delivering executive insights.",
     meta: ["Delhi, India", "Open to Full-Time Analyst Roles", "Data Analytics & BI Focus"],
   },
   spotlight: {
@@ -103,8 +103,8 @@ export const portfolioData = {
       items: ["TensorFlow", "OpenCV", "Keras", "Matplotlib", "Seaborn", "Predictive Analytics"],
     },
     {
-      title: "ETL & Data Tooling",
-      items: ["ETL Pipelines", "Git and GitHub", "Data Validation", "Jupyter", "Power BI Service"],
+      title: "Workflow & Version Control",
+      items: ["Git and GitHub", "Jupyter", "Power BI Service", "Automation Scripts", "Documentation"],
     },
   ],
   research: [
