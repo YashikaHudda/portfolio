@@ -568,11 +568,46 @@ a {
   max-width: 30rem;
 }
 
+/* --- Glassmorphism Slider Section Styling & Ambient Warm Glows --- */
+.content-main .section-block:has(.projects-slider) {
+  position: relative;
+  overflow: hidden;
+}
+
+.content-main .section-block:has(.projects-slider)::before,
+.content-main .section-block:has(.projects-slider)::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(45px);
+  z-index: 1;
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.content-main .section-block:has(.projects-slider)::before {
+  top: -10%;
+  left: 10%;
+  width: 14rem;
+  height: 14rem;
+  background: rgba(227, 184, 109, 0.35); /* Warm gold ambient glow */
+}
+
+.content-main .section-block:has(.projects-slider)::after {
+  bottom: -10%;
+  right: 10%;
+  width: 15rem;
+  height: 15rem;
+  background: rgba(188, 108, 69, 0.2); /* Terracotta accent ambient glow */
+}
+
 /* Slider Controls & Navigation Arrows */
 .slider-controls {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  z-index: 2;
+  position: relative;
 }
 
 .slider-arrow {
@@ -607,31 +642,38 @@ a {
   padding: 0.5rem 0.2rem 1rem;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none; /* Firefox */
+  position: relative;
+  z-index: 2;
 }
 
 .projects-slider::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera */
 }
 
-/* Individual Project Slide Cards */
+/* Glassmorphism Project Slide Cards */
 .project-card-slide {
   flex: 0 0 clamp(280px, 80%, 340px);
   scroll-snap-align: start;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 1.2rem;
-  border: 1px solid rgba(143, 79, 49, 0.1);
-  border-radius: 1.2rem;
-  background: linear-gradient(180deg, rgba(255, 252, 248, 0.9), rgba(255, 247, 240, 0.6));
-  box-shadow: 0 8px 20px rgba(128, 80, 56, 0.05);
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  padding: 1.5rem;
+  border-radius: 1.4rem;
+  
+  /* Frosted Glass using your warm surface tint */
+  background: rgba(255, 252, 248, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(143, 79, 49, 0.14);
+  
+  box-shadow: 0 16px 36px rgba(128, 80, 56, 0.08);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .project-card-slide:hover {
-  transform: translateY(-3px);
-  border-color: rgba(188, 108, 69, 0.3);
-  box-shadow: 0 14px 28px rgba(128, 80, 56, 0.1);
+  transform: translateY(-4px);
+  border-color: rgba(188, 108, 69, 0.35);
+  box-shadow: 0 22px 44px rgba(128, 80, 56, 0.14);
 }
 
 .research-list,
@@ -672,12 +714,15 @@ a {
 .project-name,
 .research-title,
 .skill-group-title {
-  font-size: 1.04rem;
+  font-size: 1.08rem;
   font-weight: 700;
+  color: var(--text);
 }
 
 .project-summary {
   margin-top: 0.65rem;
+  color: var(--muted);
+  font-size: 0.94rem;
 }
 
 .project-outcome {
@@ -685,6 +730,11 @@ a {
   color: var(--accent-dark);
   font-size: 0.9rem;
   font-weight: 500;
+}
+
+.project-card-slide .contact-link {
+  color: var(--accent);
+  font-weight: 600;
 }
 
 .project-tools,
