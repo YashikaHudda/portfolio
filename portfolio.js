@@ -4,7 +4,7 @@ export const portfolioData = {
     firstName: "Yashika",
     lastName: "Hudda",
     description:
-      "Hi, I'm Yashika Hudda — Data Analyst & Decision Support Specialist with a passion for turning complex data streams into actionable business intelligence. I specialize in designing interactive Power BI dashboards, optimizing SQL queries, building automated ETL validation pipelines, and delivering executive insights.",
+     "Data Analyst & Decision Support Specialist with a passion for turning complex data streams into actionable business intelligence. I specialize in designing interactive Power BI dashboards, optimizing SQL queries, building automated ETL validation pipelines, and delivering executive insights.",
     meta: ["Delhi, India", "Open to Full-Time Analyst Roles", "Data Analytics & BI Focus"],
   },
   spotlight: {
