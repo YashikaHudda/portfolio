@@ -110,13 +110,22 @@ function App() {
             </a>
             <ul className="nav-links">
               <li>
-                <a href="#work">Work</a>
+                <a 
+                  href="https://github.com/YashikaHudda" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                >
+                  GitHub
+                </a>
               </li>
               <li>
-                <a href="#about">About</a>
-              </li>
-              <li>
-                <a href="#contact">Contact</a>
+                <a 
+                  href="https://linkedin.com/in/yashika-hudda-94b932230" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                >
+                  LinkedIn
+                </a>
               </li>
             </ul>
           </div>
