@@ -50,28 +50,10 @@ function App() {
 
   const scrollProjects = (direction) => {
     if (projectsRef.current) {
-      const scrollAmount = direction === "left" ? -320 : 320;
+      const scrollAmount = direction === "left" ? -340 : 340;
       projectsRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
     }
   };
-
-  const extras = [
-    {
-      title: "Favorite stack",
-      text: "React, Node.js, PostgreSQL, Power BI, and product-focused data workflows.",
-      eyebrow: "Build",
-    },
-    {
-      title: "How I work",
-      text: "I enjoy turning complex systems into clean interfaces, useful dashboards, and clear decisions.",
-      eyebrow: "Approach",
-    },
-    {
-      title: "Currently open to",
-      text: contact.availability,
-      eyebrow: "Next move",
-    },
-  ];
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
@@ -140,7 +122,8 @@ function App() {
         </header>
 
         <main className="portfolio-content">
-          <section className="intro-section" id="top">
+          {/* Section 1: Hero / About */}
+          <section className="snap-section intro-section" id="top">
             <div className="intro-avatar-wrap">
               <div className="avatar-circle">
                 <img
@@ -176,136 +159,126 @@ function App() {
                 <a href="#contact" className="btn btn-primary">
                   Get in touch
                 </a>
-                <a href="#work" className="btn btn-outline">
+                <a href="#projects" className="btn btn-outline">
                   View work
                 </a>
               </div>
             </div>
           </section>
 
-          <section className="extras-section">
-            <div className="compact-header">
-              <h2>Extras about me</h2>
-              <p>{spotlight.title}</p>
+          {/* Section 2: Projects Slider (Full-Width Stage) */}
+          <section className="snap-section section-block" id="projects">
+            <div className="section-header">
+              <div>
+                <p className="section-label">Selected work</p>
+                <h2 className="section-title">Projects</h2>
+              </div>
+              <div className="slider-controls">
+                <button
+                  type="button"
+                  className="slider-arrow"
+                  onClick={() => scrollProjects("left")}
+                  aria-label="Previous projects"
+                >
+                  &#8592;
+                </button>
+                <button
+                  type="button"
+                  className="slider-arrow"
+                  onClick={() => scrollProjects("right")}
+                  aria-label="Next projects"
+                >
+                  &#8594;
+                </button>
+              </div>
             </div>
-            <div className="extras-grid">
-              {extras.map((item) => (
-                <article key={item.title} className="extra-card">
-                  <p className="extra-eyebrow">{item.eyebrow}</p>
-                  <h3>{item.title}</h3>
-                  <p>{item.text}</p>
+
+            <div className="projects-slider" ref={projectsRef}>
+              {projects.map((project) => (
+                <article key={project.name} className="project-card-slide">
+                  <div className="project-header">
+                    <h3 className="project-name">{project.name}</h3>
+                    <span className="meta-pill subtle">Project</span>
+                  </div>
+                  <p className="project-summary">{project.summary}</p>
+                  <p className="project-outcome">{project.outcome}</p>
+                  {project.href ? (
+                    <a
+                      className="contact-link"
+                      href={project.href}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {project.linkLabel || "View project"}
+                    </a>
+                  ) : null}
+                  <div className="project-tools">
+                    {project.tools.map((tool) => (
+                      <span key={tool} className="tool-tag">
+                        {tool}
+                      </span>
+                    ))}
+                  </div>
                 </article>
               ))}
             </div>
           </section>
 
-          <section className="content-grid" id="work">
-            <div className="content-main">
-              <section className="section-block">
-                <div className="section-header">
-                  <div>
-                    <p className="section-label">Selected work</p>
-                    <h2 className="section-title">Projects</h2>
-                  </div>
-                  <div className="slider-controls">
-                    <button
-                      type="button"
-                      className="slider-arrow"
-                      onClick={() => scrollProjects("left")}
-                      aria-label="Previous projects"
-                    >
-                      &#8592;
-                    </button>
-                    <button
-                      type="button"
-                      className="slider-arrow"
-                      onClick={() => scrollProjects("right")}
-                      aria-label="Next projects"
-                    >
-                      &#8594;
-                    </button>
-                  </div>
-                </div>
-
-                <div className="projects-slider" ref={projectsRef}>
-                  {projects.map((project) => (
-                    <article key={project.name} className="project-card-slide">
-                      <div className="project-header">
-                        <h3 className="project-name">{project.name}</h3>
-                        <span className="meta-pill subtle">Project</span>
-                      </div>
-                      <p className="project-summary">{project.summary}</p>
-                      <p className="project-outcome">{project.outcome}</p>
-                      {project.href ? (
-                        <a
-                          className="contact-link"
-                          href={project.href}
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          {project.linkLabel || "View project"}
-                        </a>
-                      ) : null}
-                      <div className="project-tools">
-                        {project.tools.map((tool) => (
-                          <span key={tool} className="tool-tag">
-                            {tool}
-                          </span>
-                        ))}
-                      </div>
-                    </article>
-                  ))}
-                </div>
-              </section>
-
-              <section className="section-block">
-                <div className="section-header">
-                  <div>
-                    <p className="section-label">Academic</p>
-                    <h2 className="section-title">Research</h2>
-                  </div>
-                  <p className="section-copy">
-                    Research and technical writing focused on intelligent systems and applied AI.
-                  </p>
-                </div>
-                <div className="research-list">
-                  {research.map((item) => (
-                    <article key={item.title} className="research-item">
-                      <div className="research-icon">R</div>
-                      <div>
-                        <h3 className="research-title">{item.title}</h3>
-                        <p className="research-meta">{item.meta}</p>
-                        <p className="research-meta">{item.summary}</p>
-                      </div>
-                    </article>
-                  ))}
-                </div>
-              </section>
-            </div>
-
-            <aside className="content-side">
-              <section className="side-card">
+          {/* Section 3: Skills Capabilities Stage */}
+          <section className="snap-section section-block" id="skills">
+            <div className="section-header">
+              <div>
                 <p className="section-label">Capabilities</p>
-                <h2 className="side-title">Skills</h2>
-                <div className="skills-stack">
-                  {skills.map((group) => (
-                    <article key={group.title} className="skill-group">
-                      <h3 className="skill-group-title">{group.title}</h3>
-                      <div className="skill-list">
-                        {group.items.map((item) => (
-                          <span key={item} className="skill-pill">
-                            {item}
-                          </span>
-                        ))}
-                      </div>
-                    </article>
-                  ))}
-                </div>
-              </section>
+                <h2 className="section-title">Skills & Tech Stack</h2>
+              </div>
+            </div>
+            <div className="skills-grid-wide">
+              {skills.map((group) => (
+                <article key={group.title} className="skill-group-card">
+                  <h3 className="skill-group-title">{group.title}</h3>
+                  <div className="skill-list">
+                    {group.items.map((item) => (
+                      <span key={item} className="skill-pill">
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
 
-              <section className="side-card" id="contact">
+          {/* Section 4: Academic Research Stage */}
+          <section className="snap-section section-block" id="research">
+            <div className="section-header">
+              <div>
+                <p className="section-label">Academic</p>
+                <h2 className="section-title">Research Papers</h2>
+              </div>
+              <p className="section-copy">
+                Research and technical writing focused on intelligent systems and applied AI.
+              </p>
+            </div>
+            <div className="research-list-wide">
+              {research.map((item) => (
+                <article key={item.title} className="research-item-card">
+                  <div className="research-icon">R</div>
+                  <div>
+                    <h3 className="research-title">{item.title}</h3>
+                    <p className="research-meta-badge">{item.meta}</p>
+                    <p className="research-summary-text">{item.summary}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
+
+          {/* Section 5: Contact / Say Hello Stage */}
+          <section className="snap-section section-block" id="contact">
+            <div className="contact-stage-grid">
+              <div className="contact-info-col">
                 <p className="section-label">Say hello</p>
-                <h2 className="side-title">Contact</h2>
+                <h2 className="section-title">Let&apos;s Connect</h2>
                 <p className="contact-intro">{contact.intro}</p>
                 <div className="contact-links">
                   {contact.links.map((link) => {
@@ -324,34 +297,35 @@ function App() {
                   })}
                 </div>
                 <div className="availability">{contact.availability}</div>
-                <form className="contact-form" onSubmit={handleFormSubmit}>
-                  <div className="form-row">
-                    <label htmlFor="cf-name">Name</label>
-                    <input type="text" id="cf-name" name="name" placeholder="Your name" />
-                  </div>
-                  <div className="form-row">
-                    <label htmlFor="cf-email">Email</label>
-                    <input
-                      type="email"
-                      id="cf-email"
-                      name="email"
-                      placeholder="your@email.com"
-                    />
-                  </div>
-                  <div className="form-row">
-                    <label htmlFor="cf-msg">Message</label>
-                    <textarea
-                      id="cf-msg"
-                      name="message"
-                      placeholder="What would you like to discuss?"
-                    />
-                  </div>
-                  <button type="submit" className="btn btn-primary form-submit">
-                    Send message
-                  </button>
-                </form>
-              </section>
-            </aside>
+              </div>
+
+              <form className="contact-form" onSubmit={handleFormSubmit}>
+                <div className="form-row">
+                  <label htmlFor="cf-name">Name</label>
+                  <input type="text" id="cf-name" name="name" placeholder="Your name" />
+                </div>
+                <div className="form-row">
+                  <label htmlFor="cf-email">Email</label>
+                  <input
+                    type="email"
+                    id="cf-email"
+                    name="email"
+                    placeholder="your@email.com"
+                  />
+                </div>
+                <div className="form-row">
+                  <label htmlFor="cf-msg">Message</label>
+                  <textarea
+                    id="cf-msg"
+                    name="message"
+                    placeholder="What would you like to discuss?"
+                  />
+                </div>
+                <button type="submit" className="btn btn-primary form-submit">
+                  Send message
+                </button>
+              </form>
+            </div>
           </section>
         </main>
 
